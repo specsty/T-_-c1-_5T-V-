@@ -5,7 +5,6 @@
  */
 package tucildua;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -279,7 +278,7 @@ public class bigJFrame extends javax.swing.JFrame {
 	}
     }
     private void kurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kurangActionPerformed
-        // TODO add your handling code here:
+        hasil.setText(BigNumLib.minus(number1.getText(), number2.getText()));
     }//GEN-LAST:event_kurangActionPerformed
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
@@ -287,20 +286,7 @@ public class bigJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
     
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
-        String N1 = number1.getText();
-        String N2 = number2.getText();
-        int data[];
-        data = new int[N1.length()];
-        char ch[];
-        ch = new char[N1.length()];
-        for(int i=0; i<N1.length(); i++) {
-            data[i] = charToInt(N1.charAt(i)) + charToInt(N2.charAt(i));
-            ch[i] = intToChar(data[i]); 
-        }
-        
-        String s;
-        s = String.valueOf(ch);
-        hasil.setText(s);
+        hasil.setText(BigNumLib.plus(number1.getText(), number2.getText()));
     }//GEN-LAST:event_tambahActionPerformed
 
     private void generaterNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaterNumberActionPerformed
@@ -311,11 +297,11 @@ public class bigJFrame extends javax.swing.JFrame {
         Random random = new Random();
         char hasilRandom[] = new char[sizeint];
         if (signNumber.getSelectedIndex()==0) {
-            hasilRandom[0]='+';
+            //hasilRandom[0]='+';
         } else {
             hasilRandom[0]='-';
         }
-        for (int idx = 1; idx < sizeint; idx++){
+        for (int idx = 0; idx < sizeint; idx++){
             if (START > END) {
                 throw new IllegalArgumentException("Start cannot exceed End.");
             }
